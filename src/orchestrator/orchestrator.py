@@ -1,3 +1,4 @@
+from audio.recorder import Recorder
 class ConversationOrchestrator:
     """Orchestrates the conversation flow between ASR, Memory, LLM, and TTS components."""
     def __init__(self, asr, memory, llm, tts):
@@ -21,9 +22,14 @@ class ConversationOrchestrator:
 
 class ASR:
     """Handles Automatic Speech Recognition (ASR) to convert spoken language into text."""
+    def __init__(self, recognizer):
+        self.recorder = Recorder()
+        self.recognizer = recognizer
+
     def listen(self)-> str:
-        print("Listening...")
-        return "你好"
+        audio_path = self.recorder.record()
+        text = self.recognizer.transcribe(audio_path)
+        return text
 
 
 class Memory:

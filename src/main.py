@@ -1,7 +1,8 @@
 from orchestrator.orchestrator import ASR, LLM, TTS, ConversationOrchestrator, Memory
+from asr.whisper import WhisperASR
 
 
-asr = ASR()
+asr = ASR(WhisperASR())
 memory = Memory()
 llm = LLM()
 tts = TTS()
