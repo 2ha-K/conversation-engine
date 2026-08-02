@@ -104,8 +104,8 @@
         <mxCell id="RnRUQkCUryIXZ56YzKea-36" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;p&gt;Interrupt&lt;/p&gt;" vertex="1">
           <mxGeometry height="30" width="60" x="90" y="540" as="geometry" />
         </mxCell>
-        <mxCell id="RnRUQkCUryIXZ56YzKea-37" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;p&gt;Long term Memory&lt;/p&gt;" vertex="1">
-          <mxGeometry height="30" width="110" x="90" y="740" as="geometry" />
+        <mxCell id="RnRUQkCUryIXZ56YzKea-37" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;p&gt;Progressive Reasoning&lt;/p&gt;" vertex="1">
+          <mxGeometry height="30" width="150" x="90" y="740" as="geometry" />
         </mxCell>
         <mxCell id="RnRUQkCUryIXZ56YzKea-40" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;p&gt;Emotion&lt;/p&gt;" vertex="1">
           <mxGeometry height="30" width="60" x="90" y="880" as="geometry" />
