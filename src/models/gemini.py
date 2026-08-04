@@ -8,10 +8,13 @@ class GeminiModel(BaseModel):
         self.client = genai.Client(api_key=api_key)
 
     def generate(self, text: str) -> str:
-
-        response = self.client.models.generate_content(
-            model="gemini-3.5-flash",
-            contents=text,
-        )
+        try:
+            response = self.client.models.generate_content(
+                model="gemini-3.5-flash",
+                contents=text,
+            )
+        except Exception as e:
+            print(f"[Gemini Error] {e}")
+            return "抱歉，目前 AI 無法回應。"
 
         return response.text
