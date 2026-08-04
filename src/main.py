@@ -1,4 +1,5 @@
-from orchestrator.orchestrator import ASR, ConversationOrchestrator, Agent
+from orchestrator.orchestrator import ConversationOrchestrator
+from agent.base import Agent
 from tts.edge import EdgeTTS as TTS
 from asr.whisper import WhisperASR
 from agent.selector.brain_selector import BrainSelector
@@ -13,7 +14,7 @@ start = time.perf_counter()
 
 load_dotenv()
 
-asr = ASR(WhisperASR())
+asr = WhisperASR()
 model = GeminiModel(api_key=os.getenv("GEMINI_API_KEY"))
 fast_brain = FastBrain(model=model)
 selector = BrainSelector(fast_brain=fast_brain, medium_brain=None, slow_brain=None)
