@@ -9,15 +9,14 @@ from models.gemini import GeminiModel
 from dotenv import load_dotenv
 from players.simple_player import SimplePlayer
 import os
-import time
 from audio.recorder import Recorder
-
-start = time.perf_counter()
+from models.openrouter import OpenRouterModel
 
 load_dotenv()
 
 asr = WhisperASR()
-model = GeminiModel(api_key=os.getenv("GEMINI_API_KEY"))
+# model = GeminiModel(api_key=os.getenv("GEMINI_API_KEY"))
+model = OpenRouterModel(api_key=os.getenv("OPENROUTER_API_KEY"))
 fast_brain = FastBrain(model=model)
 selector = BrainSelector(fast_brain=fast_brain, medium_brain=None, slow_brain=None)
 agent = Agent(selector=selector)
@@ -33,9 +32,5 @@ engine = ConversationOrchestrator(
     
 recorder = Recorder()
 recorder.show_devices()
-audio = recorder.record(2)
+audio = recorder.record(10)
 engine.handle_conversation(audio)
-
-
-end = time.perf_counter()
-print(f"Total execution time: {end - start:.2f} seconds")
