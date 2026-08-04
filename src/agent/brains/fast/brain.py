@@ -1,5 +1,9 @@
-class FastBrain:
+from agent.brains.base import BaseBrain
 
+class FastBrain(BaseBrain):
+    """Handles quick responses without using memory or external tools."""
+    def __init__(self, model):
+        self.model = model
     def respond(self, text: str) -> str:
-        print("Fast thinking...")
-        return f"你好！你剛剛是說{str(text)}嗎？我可以快速回應你！"
+        return self.model.generate(text)
+

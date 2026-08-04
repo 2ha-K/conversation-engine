@@ -12,7 +12,7 @@ venv/
 .idea/
 
 # AI Models
-models/
+assets/models/
 
 # Data
 data/
