@@ -1,5 +1,7 @@
 from faster_whisper import WhisperModel
-class WhisperASR:
+
+from asr.base import ASR
+class WhisperASR(ASR):
     """快取要記得刪除"""
     def __init__(self):
         self.model = WhisperModel("small")
