@@ -7,4 +7,4 @@ class ASR(ABC):
 
     @abstractmethod
     def transcribe(self, audio: AudioData) -> str:
-        pass
+        ...

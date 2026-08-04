@@ -1,4 +1,5 @@
-from orchestrator.orchestrator import ASR, TTS, ConversationOrchestrator, Agent
+from orchestrator.orchestrator import ASR, ConversationOrchestrator, Agent
+from tts.edge import EdgeTTS as TTS
 from asr.whisper import WhisperASR
 from agent.selector.brain_selector import BrainSelector
 from agent.brains.fast.brain import FastBrain

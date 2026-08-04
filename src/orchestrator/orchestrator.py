@@ -1,15 +1,20 @@
 from audio.data import AudioData
+from tts.base import TTS
 class ConversationOrchestrator:
     """Orchestrates the conversation flow between ASR, Memory, LLM, and TTS components."""
-    def __init__(self, asr, agent, tts):
+    def __init__(self, asr, agent, tts: TTS):
         self.asr = asr
         self.agent = agent
         self.tts = tts
 
     def handle_conversation(self, audio: AudioData)-> None:
+        print("=== Conversation Start ===")
+
         text = self.asr.transcrible(audio)
+        print(f"[ASR] {text}")
 
         response = self.agent.respond(text)
+        print(f"[Agent] {response}")
 
         self.tts.speak(response)
 
@@ -35,9 +40,3 @@ class Agent:
     def respond(self, text):
         brain = self.selector.select(text)
         return brain.respond(text)
-
-
-class TTS:
-    """Handles Text-to-Speech (TTS) to convert text into spoken language."""
-    def speak(self, text: str)-> None:
-        print(f"Speaking: {text}")
