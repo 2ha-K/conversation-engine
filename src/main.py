@@ -6,6 +6,7 @@ from models.gemini import GeminiModel
 from dotenv import load_dotenv
 import os
 import time
+from audio.data import AudioData
 
 start = time.perf_counter()
 
@@ -24,7 +25,8 @@ engine = ConversationOrchestrator(
     tts
 )
 
-engine.handle_conversation()
+audio = AudioData(path="tests/assets/audio/test_audio01.mp3")
+engine.handle_conversation(audio)
 
 
 end = time.perf_counter()

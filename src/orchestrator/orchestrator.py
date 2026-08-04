@@ -1,4 +1,4 @@
-from audio.recorder import Recorder
+from audio.data import AudioData
 class ConversationOrchestrator:
     """Orchestrates the conversation flow between ASR, Memory, LLM, and TTS components."""
     def __init__(self, asr, agent, tts):
@@ -6,8 +6,8 @@ class ConversationOrchestrator:
         self.agent = agent
         self.tts = tts
 
-    def handle_conversation(self)-> None:
-        text = self.asr.listen()
+    def handle_conversation(self, audio: AudioData)-> None:
+        text = self.asr.transcrible(audio)
 
         response = self.agent.respond(text)
 
@@ -20,12 +20,10 @@ class ConversationOrchestrator:
 class ASR:
     """Handles Automatic Speech Recognition (ASR) to convert spoken language into text."""
     def __init__(self, recognizer):
-        self.recorder = Recorder()
         self.recognizer = recognizer
 
-    def listen(self)-> str:
-        audio_path = self.recorder.record()
-        text = self.recognizer.transcribe(audio_path)
+    def transcrible(self, audio)-> str:
+        text = self.recognizer.transcribe(audio)
         return text
 
 
