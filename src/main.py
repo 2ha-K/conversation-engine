@@ -5,6 +5,9 @@ from agent.brains.fast.brain import FastBrain
 from models.gemini import GeminiModel
 from dotenv import load_dotenv
 import os
+import time
+
+start = time.perf_counter()
 
 load_dotenv()
 
@@ -22,3 +25,7 @@ engine = ConversationOrchestrator(
 )
 
 engine.handle_conversation()
+
+
+end = time.perf_counter()
+print(f"Total execution time: {end - start:.2f} seconds")
